@@ -3,27 +3,40 @@
 void rr(int *a, int *b)
 {
         int i = 0;
-        int yedek = a[0];
-        ft_memmove(a - 1, a, sizeof(a));
-        i = a_list_lenght(a);
-        a[i] = yedek;
-        yedek = b[0];
-        i = 0;
-        ft_memmove(b - 1, b, sizeof(b));
-        i = b_list_lenght(b);
-        b[i] = yedek;
-        write(1, "rr\n", 3);
+        while(a[i] != '\0')
+                {
+                        i++;
+                }
+        int keep;
+        keep = a[0];
+        up_move_list(a);
+        a[i - 1] = keep;
+
+        int j = 0;
+        while(b[j] != '\0')
+                {
+                        j++;
+                }
+        int keeper;
+        keeper = b[0];
+        up_move_list(b);
+        b[j - 1] = keeper;
+        puts("rr");
 }
 
-void rra(int *a)
+int *rra(int *a)
 {
         int yedek;
         int i;
-        i = a_list_lenght(a);
-        yedek = a[i];
-        ft_memmove(a + 1, a, sizeof(a));
+                while(a[i] != '\0')
+                {
+                        i++;
+                }
+        yedek = a[i - 1];
+        a[i - 1] = '\0';
+        down_move_list(a);
         a[0] = yedek;
-        write(1, "rra\n", 4);
+        return (a);
 }
 
 void rrb(int *b)

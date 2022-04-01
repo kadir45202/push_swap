@@ -1,49 +1,57 @@
 #include "push_swap.h"
-#include <unistd.h>
-void pa(int *a, int *b)//b yığınının en üstteki ilk elemanını a yığının en üstüne yerleştirir
+
+void pa(int *a, int *b)
 {
         if(sizeof(a) > 1)
         {
                 if(sizeof(b) > 1)
                 {
-						ft_memmove(a + 1, a, sizeof(a));
-						a[0] = b[0];
-						ft_memmove(b - 1, b, sizeof(b));
+                down_move_list(a);
+                a[0] = b[0];
+                up_move_list(b);
                 }
         }
-        write(1, "pa\n", 3);
+        puts("pa");
 }
 
 void pb(int *a, int *b)
 {
-        if(a_list_lenght(b) >= 2)
+        if(sizeof(a) > 1)
         {
-                if(sizeof(a - 1))
+                if(sizeof(b) > 1)
                 {
-                        ft_memmove(a + 1, a, sizeof(a));
-                        a[0] = b[0];
-                        ft_memmove(b - 1, b, sizeof(b));
+                down_move_list(b);
+                b[0] = a[0];
+                up_move_list(a);
                 }
         }
-        write(1, "pb\n", 3);
+        puts("pb");
 }
 
 void ra(int *a)
 {
         int i = 0;
-        int yedek = a[0];
-        ft_memmove(a - 1, a, sizeof(a));
-        i = a_list_lenght(a);
-        a[i] = yedek;
-        write(1, "ra\n", 3);
+        while(a[i] != '\0')
+                {
+                        i++;
+                }
+        int keep;
+        keep = a[0];
+        up_move_list(a);
+        a[i - 1] = keep;
+        puts("ra");
 }
 
-void rb(int *b)
+void rb(int *a)
 {
         int i = 0;
-        int yedek = b[0];
-        ft_memmove(b - 1, b, sizeof(b));
-        i = b_list_lenght(b);
-        b[i] = yedek;
-        write(1, "ra\n", 3);
+        while(a[i] != '\0')
+                {
+                        i++;
+                }
+        int keep;
+        keep = a[0];
+        up_move_list(a);
+        a[i - 1] = keep;
+        puts("rb");
 }
