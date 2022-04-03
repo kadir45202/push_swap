@@ -1,14 +1,23 @@
 #include "push_swap.h"
 
-int main() {
-  int a[100] = {1, 2 ,3, 4, 5, 6, 7}; 
-  int b[100] = {4, 5, 6};
-  
-  rra(a);
-  int i = 0;
-        while(i < 10)
+int main(int argc, char **argv){
+
+  struct list liste;
+	int i = 1;
+	liste.a = malloc(argc);
+	
+	while(argc > 1)
+	{
+		liste.a[i - 1] = ft_atoi(argv[i]);
+		
+		i++;
+		argc--;
+	}
+  rra(liste.a, i);
+  i = 0;
+        while(i < 9)
                 {
-                        printf("%d %d\n", a[i], b[i]);
+                        printf("%d\n", liste.a[i]);
                         i++;
                 }
   return 0;

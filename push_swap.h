@@ -7,6 +7,12 @@
 # include <fcntl.h>
 # include <unistd.h>
 
+struct list{
+	int *a;
+	int *b;
+	int step;
+};
+
 void sa(int *a);
 void sb(int *b);
 void ss(int *a, int*b);
@@ -15,7 +21,7 @@ void pb(int *a, int *b);
 void ra(int *a);
 void rb(int *b);
 void rr(int *a, int *b);
-int rra(int *a);
+int rra(int *a, int z);
 int rrb(int *a);
 void rrr(int *a, int *b);
 int  a_list_lenght(int *a);

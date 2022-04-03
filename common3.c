@@ -24,22 +24,28 @@ void rr(int *a, int *b)
         puts("rr");
 }
 
-int    rra(int *a)
+int    rra(int *a, int z)
 {
-    int d;
-
-    d = a[0];
-    ft_memmove(a +1, a, sizeof(a));
-    a[0] = d;
-    write(1, "rra\n", 4);
-	return *a;
+	int i = 0;
+	int yedek;
+        while(z > 0)
+                {
+					puts("a");
+						z--;
+                        i++;
+                }
+		yedek = a[i -1];
+		down_move_list(a);
+		a[0] = a[i];
+		a[i] = '\0';
+		return *a;
 }
 
 int rrb(int *a)
 {
         int yedek;
         int i;
-                while(a[i] != '\0')
+                while(a[i] != '\0' && a[i])
                 {
                         i++;
                 }
