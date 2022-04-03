@@ -1,43 +1,30 @@
 #include "push_swap.h"
 
-int main(int argc, char **argv) {
-
-        if(argc <= 2)
-                return 0;
-        int big;
-        int a[100000];
-        int b[100000];
-        
-		b[0] = 4;
-		b[1] = 5;
-		b[2] = 6;
-		int i = 0;
-		while(i < 100000)
-		{
-			a[i] = 0;
-			i++;
-		}
-		i = 1;
-		       while(argv[i] != NULL)
-               {
-                       a[i - 1] = ft_atoi(argv[i]);
-                       i++;
-               }
-		
-		//sa(a);
-		//sb(b);
-		//ss(a, b);
-		pa(a, b);
-		
-		i = 0;
-		while(i < 5)
-		{
-			printf("%d %d\n", a[i], b[i]);
-			i++;
-		}
-
-return 0;
+int main() {
+  int a[100] = {1, 2 ,3, 4, 5, 6, 7}; 
+  int b[100] = {4, 5, 6};
+  
+  rra(a);
+  int i = 0;
+        while(i < 10)
+                {
+                        printf("%d %d\n", a[i], b[i]);
+                        i++;
+                }
+  return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
