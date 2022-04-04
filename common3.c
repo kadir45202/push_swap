@@ -6,7 +6,7 @@
 /*   By: kcetin <kcetin@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:57:37 by kcetin            #+#    #+#             */
-/*   Updated: 2022/04/04 16:59:04 by kcetin           ###   ########.fr       */
+/*   Updated: 2022/04/04 20:48:05 by kcetin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	rrr(t_list list)
 	b_yedek = list.b[list.b_size - 1];
 	b_down_move_list(list);
 	list.b[0] = b_yedek;
+	write(1,"rrr\n",4);
 }

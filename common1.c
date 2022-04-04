@@ -21,7 +21,7 @@ void sb(t_list list)
         list.b[0] = list.b[1];
         list.b[1] = i;
         }
-       write(1, "sa\n", 3);
+       write(1, "sb\n", 3);
 }
 
 void ss(t_list list)
@@ -40,4 +40,5 @@ void ss(t_list list)
         list.a[0] = list.a[1];
         list.a[1] = c;
         }
+		write(1,"ss\n",3);
 }
