@@ -1,28 +1,57 @@
 #include "push_swap.h"
 
-int down_move_list(int *list)
+void	a_down_move_list(t_list list)
 {
-        int i = 0;
-        while(list[i] != '\0')
-                {
-                        i++;
-                }
-        i -= 1;
-        while(i >= 0)
-                {
-                        list[i + 1] = list[i]; 
-                        i--;
-                }
-        return (*list);
+		list.a_size += 1;
+		int i = 0;
+
+		while(i <= list.a_size)
+		{
+			i++;
+		}
+		while(i >= 0)
+		{
+			list.a[i + 1] = list.a[i];
+			i--;
+		}
 }
 
-int up_move_list(int *list)
+void a_up_move_list(t_list list)
 {
         int i = 0;
-        while(list[i] != '\0')
+	
+        while(i <= list.a_size)
                 {
-                        list[i] = list[i + 1];
+                        list.a[i] = list.a[i + 1];
                         i++;
                 }
-        return (*list);
+		list.a_size -= 1;
+}
+
+void	b_down_move_list(t_list list)
+{
+		list.b_size += 1;
+		int i = 0;
+
+		while(i <= list.b_size)
+		{
+			i++;
+		}
+		while(i >= 0)
+		{
+			list.b[i + 1] = list.b[i];
+			i--;
+		}
+}
+
+void b_up_move_list(t_list list)
+{
+        int i = 0;
+	
+        while(i <= list.b_size)
+                {
+                        list.b[i] = list.b[i + 1];
+                        i++;
+                }
+		list.b_size -= 1;
 }

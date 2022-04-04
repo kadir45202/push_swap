@@ -1,81 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   common3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kcetin <kcetin@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/04 16:57:37 by kcetin            #+#    #+#             */
+/*   Updated: 2022/04/04 16:59:04 by kcetin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void rr(int *a, int *b)
+void	rra(t_list list)
 {
-        int i = 0;
-        while(a[i] != '\0')
-                {
-                        i++;
-                }
-        int keep;
-        keep = a[0];
-        up_move_list(a);
-        a[i - 1] = keep;
+	int a_yedek;
 
-        int j = 0;
-        while(b[j] != '\0')
-                {
-                        j++;
-                }
-        int keeper;
-        keeper = b[0];
-        up_move_list(b);
-        b[j - 1] = keeper;
-        puts("rr");
+	a_yedek = list.a[list.a_size - 1];
+	a_down_move_list(list);
+	list.a[0] = a_yedek;
+	write(1,"rra\n",4);
 }
 
-int    rra(int *a, int z)
+void	rrb(t_list list)
 {
-	int i = 0;
-	int yedek;
-        while(z > 0)
-                {
-					puts("a");
-						z--;
-                        i++;
-                }
-		yedek = a[i -1];
-		down_move_list(a);
-		a[0] = a[i];
-		a[i] = '\0';
-		return *a;
+	int b_yedek;
+
+	b_yedek = list.b[list.b_size - 1];
+	b_down_move_list(list);
+	list.b[0] = b_yedek;
+	write(1,"rrb\n",4);
 }
 
-int rrb(int *a)
+void	rrr(t_list list)
 {
-        int yedek;
-        int i;
-                while(a[i] != '\0' && a[i])
-                {
-                        i++;
-                }
-        yedek = a[i - 1];
-        a[i - 1] = '\0';
-        down_move_list(a);
-        a[0] = yedek;
-		write(1, "rrb\n", 4);
-        return (*a);		
-}
-
-void rrr(int *a, int *b)
-{
-        int yedek;
-        int i;
-                while(a[i] != '\0')
-                {
-                        i++;
-                }
-        yedek = a[i - 1];
-        a[i - 1] = '\0';
-        down_move_list(a);
-        a[0] = yedek;
-		i = 0;
-        while(a[i] != '\0')
-        {
-            i++;
-        }
-        yedek = a[i - 1];
-        a[i - 1] = '\0';
-        down_move_list(a);
-        a[0] = yedek;
+	int a_yedek;
+	int b_yedek;
+	
+	a_yedek = list.a[list.a_size - 1];
+	a_down_move_list(list);
+	list.a[0] = a_yedek;
+	b_yedek = list.b[list.b_size - 1];
+	b_down_move_list(list);
+	list.b[0] = b_yedek;
 }

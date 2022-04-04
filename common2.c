@@ -1,57 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   common2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kcetin <kcetin@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/04 16:02:05 by kcetin            #+#    #+#             */
+/*   Updated: 2022/04/04 16:49:47 by kcetin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void pa(int *a, int *b)
+void	ra(t_list list)
 {
-        if(sizeof(a) > 1)
-        {
-                if(sizeof(b) > 1)
-                {
-                down_move_list(a);
-                a[0] = b[0];
-                up_move_list(b);
-                }
-        }
-        puts("pa");
+	int a_yedek;
+	
+	a_yedek = list.a[0];
+	a_up_move_list(list);
+	list.a[list.a_size - 1] = a_yedek;
+	write(1, "rra\n", 4);
 }
 
-void pb(int *a, int *b)
+void	rb(t_list list)
 {
-        if(sizeof(a) > 1)
-        {
-                if(sizeof(b) > 1)
-                {
-                down_move_list(b);
-                b[0] = a[0];
-                up_move_list(a);
-                }
-        }
-        puts("pb");
+	int b_yedek;
+	
+	b_yedek = list.b[0];
+	b_up_move_list(list);
+	list.b[list.b_size - 1] = b_yedek;
+	write(1, "rra\n", 4);
 }
 
-void ra(int *a)
+void	rr(t_list list)
 {
-        int i = 0;
-        while(a[i] != '\0')
-                {
-                        i++;
-                }
-        int keep;
-        keep = a[0];
-        up_move_list(a);
-        a[i - 1] = keep;
-        puts("ra");
-}
-
-void rb(int *a)
-{
-        int i = 0;
-        while(a[i] != '\0')
-                {
-                        i++;
-                }
-        int keep;
-        keep = a[0];
-        up_move_list(a);
-        a[i - 1] = keep;
-        puts("rb");
+	int b_yedek;
+	int a_yedek;
+	
+	b_yedek = list.b[0];
+	b_up_move_list(list);
+	list.b[list.b_size - 1] = b_yedek;
+	a_yedek = list.a[0];
+	a_up_move_list(list);
+	list.a[list.a_size - 1] = a_yedek;
 }
