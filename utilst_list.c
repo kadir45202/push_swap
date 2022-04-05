@@ -3,27 +3,28 @@
 void	a_down_move_list(t_list list)
 {
 		list.a_size += 1;
-		int i = 0;
+		int a = 0;
 
-		while(i <= list.a_size)
+		while(a <= list.a_size)
 		{
-			i++;
+			a++;
 		}
-		while(i >= 0)
+		while(a >= 0)
 		{
-			list.a[i + 1] = list.a[i];
-			i--;
+			list.a[a + 1] = list.a[a];
+			a--;
 		}
+		
 }
 
 void a_up_move_list(t_list list)
 {
-        int i = 0;
+        int b = 0;
 	
-        while(i <= list.a_size)
+        while(b <= list.a_size)
                 {
-                        list.a[i] = list.a[i + 1];
-                        i++;
+                        list.a[b] = list.a[b + 1];
+                        b++;
                 }
 		list.a_size -= 1;
 }
@@ -31,27 +32,28 @@ void a_up_move_list(t_list list)
 void	b_down_move_list(t_list list)
 {
 		list.b_size += 1;
-		int i = 0;
+		int c = 0;
 
-		while(i <= list.b_size)
+		while(c <= list.b_size)
 		{
-			i++;
+			c++;
 		}
-		while(i >= 0)
+		while(c >= 0)
 		{
-			list.b[i + 1] = list.b[i];
-			i--;
+			list.b[c + 1] = list.b[c];
+			c--;
 		}
+		list.b[list.b_size - 1] = '\0';
 }
 
 void b_up_move_list(t_list list)
 {
-        int i = 0;
+        int d = 0;
 	
-        while(i <= list.b_size)
+        while(d <= list.b_size)
                 {
-                        list.b[i] = list.b[i + 1];
-                        i++;
+                        list.b[d] = list.b[d + 1];
+                        d++;
                 }
 		list.b_size -= 1;
 }

@@ -19,11 +19,12 @@ void a_up_move_list(t_list list);
 void a_down_move_list(t_list list);
 void b_down_move_list(t_list list);
 
+
 void sa(t_list list);
 void sb(t_list list);
 void ss(t_list list);
 void pa(t_list list);
-void pp(t_list list);
+void pb(t_list list);
 void ra(t_list list);
 void rb(t_list list);
 void rr(t_list list);
