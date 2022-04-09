@@ -2,3 +2,7 @@ struct oluştur
 dizinin eleman sayısı
 her işlemde eleman sayısı değişiklik gösterebilir
 büütn bunları hazırla ve algoritmaya geç.
+
+pa ve pb kontrol eksiği var
+
+radix sort ve counting sort kullanmak gerekecek
