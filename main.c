@@ -55,6 +55,7 @@ void parca(t_list *list)
 		value += 15;
 		if(value >= 10000)
 			break;
+		//sonraki elemana geçip teker teker kontrol ettir sonra değeri arttır
 	}
 }
 
