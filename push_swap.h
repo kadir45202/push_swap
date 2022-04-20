@@ -27,6 +27,11 @@ void quickSort(int first,int last, t_list *list);
 void shellSort(t_list *list);
 char	*ft_itoa(int n);
 
+void ft_free(t_list *list);
+void atma(t_list *list);
+void ft_malloc(t_list *list);
+void yazdir(t_list *list);
+
 void sa(t_list *list);
 void sb(t_list *list);
 void ss(t_list *list);
