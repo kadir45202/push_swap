@@ -6,61 +6,92 @@
 /*   By: kcetin <kcetin@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 11:14:08 by kcetin            #+#    #+#             */
-/*   Updated: 2022/04/20 18:05:41 by kcetin           ###   ########.fr       */
+/*   Updated: 2022/05/01 15:55:30 by kcetin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	find_bigger(t_list *list)
 {
-	char		*d;
-	const char	*s;
+	int	i;
+	int number;
+	i = 0;
+	number = list->a[0];
+	while(i <= list->a_size)
+	{
+		if(list->a[i] > number)
+		{
+			number = list->a[i];
+		}
+		i++;
+	}
+	return number;
+}
 
-	d = dst;
-	s = src;
-	if (!dst && !src)
-		return (0);
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+int	there_is(t_list *list, int number)
+{
+	int	i;
+	int count;
+	i = 0;
+	count = 0;
+	while(i <= list->a_size)
+	{
+		if(list->a[i] <= number)
+			count++;
+		i++;
+	}
+	return count;
+}
+
+void	make_list(t_list *list)
+{
+	int	i;
+	int	number;
+	i = 0;
+	number = 13;
+	while(list->a_size)
+	{
+			if(list->a[0] <= number && there_is(list, number) != 0)
+			{
+				pb(list);
+			}
+			else if(there_is(list, number) <= 2)
+			{
+				number += 20;
+			}
+			else
+				ra(list);
+	}
 }
 
 void parca(t_list *list)
 {
-	int value;
-	int i;
-	int j;
-	value = 30;
+	int	i;
+
 	i = 0;
-	j = 0;
-	while(list->a_size)
+	while(list->b_size)
 	{
-		while(list->a_size)
+		if(list->b[0] < list->a[0] || list->a_size == 0)
 		{
-			if(list->a[0] <= value)
-			{
-				pb(list);
-			}
-			else if(list->a_size != 0)
-			{
-					value += 30;
-			}
-			else
-				ra(list);
-			//printf("%d\n", list->b_size);
-			i++;
+			pa(list);
+		}
+		else if(list->b[0] < list->a[1])
+		{
+			pa(list);
+			sa(list);
+		}
+		else if(list->b[0] > list->a[0])
+		{
+			pb(list);
+			sb(list);
 		}
 	}
-	
 }
 
 int main(int argc, char **argv)
 {
 	t_list *list = malloc(10000);
-	int *c;
     ft_malloc(list);
     int i = 0;
 	argc -= 1;
@@ -69,16 +100,16 @@ int main(int argc, char **argv)
 	
 	while(argc > 0)
 	{
-		list->a[i] = atoi(argv[i + 1]);
+		list->a[i] = ft_atoi(argv[i + 1]);
 		i++;
 		argc--;
 	}
 
-	c = malloc(4*(list->a_size + 10));
-	ft_memcpy(c,list->a,list->a_size * 4);
-	insertion(c,list->a_size, list);
-	parca(list);
-		atma(list);
+	ft_memcpy(list->c,list->a,list->a_size * 4);
+	insertion(list->c,list->a_size, list);
+//		atma(list);
+		make_list(list);
+		parca(list);
 	//	yazdir(list);
         ft_free(list);
 	return 0;

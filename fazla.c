@@ -6,7 +6,7 @@
 /*   By: kcetin <kcetin@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 13:32:50 by kcetin            #+#    #+#             */
-/*   Updated: 2022/04/19 13:36:38 by kcetin           ###   ########.fr       */
+/*   Updated: 2022/05/01 12:10:22 by kcetin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ void ft_malloc(t_list *list)
 	list->c = malloc(10000000000);
 	list->a = malloc(10000000000);
 	list->b = malloc(10000000000);
-	list->char_a = malloc(10000);
-	list->char_b = malloc(10000);
 }
 
 void ft_free(t_list *list)
 {
         free(list->a);
         free(list->b);
+		free(list->c);
         free(list);
 }
 
