@@ -20,7 +20,7 @@ void b_up_move_list(t_list *list);
 void a_up_move_list(t_list *list);
 void a_down_move_list(t_list *list);
 void b_down_move_list(t_list *list);
-void insertion(int array[],int size, t_list *list);
+void insertion(int array[], int size);
 int ft_error(int argc);
 void quickSort(int first,int last, t_list *list);
 void shellSort(t_list *list);

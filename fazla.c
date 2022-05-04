@@ -14,9 +14,10 @@
 
 void ft_malloc(t_list *list)
 { 
-	list->c = malloc(10000000000);
-	list->a = malloc(10000000000);
-	list->b = malloc(10000000000);
+	list->c = malloc(sizeof(t_list) * list->a_size);
+	list->a = malloc(sizeof(t_list) * list->a_size);
+	list->b = malloc(sizeof(t_list) * list->a_size);
+
 }
 
 void ft_free(t_list *list)
@@ -29,27 +30,32 @@ void ft_free(t_list *list)
 
 void atma(t_list *list)
 {
+	int	i;
+	i = 0;
 	while(list->b_size)
 	{
-		if(list->c[list->b_size - 1] == list->b[0])
+		if(list->a[0] > list->a[1] && list->a_size >= 2)
+		{
+			sa(list);
+		}
+		else if(list->b[0] == list->c[list->b_size - 1])
 		{
 			pa(list);
 		}
 		else
-		{
-		rrb(list);
-		}
+			//yazdir(list);
+			rb(list);
 	}
 }
 
 void yazdir(t_list *list)
 {
 	int i = 0;
-		printf("A B eleman sayısı %d %d\n", list->a_size, list->b_size);
+		printf("A B eleman sayisi %d %d\n", list->a_size, list->b_size);
 	while(i < list->a_size || i < list->b_size)
 	{	
 		printf("%d   %d   %d\n", list->a[i], list->b[i], list->c[i]);
 		i++;
 	}
-	printf("A B eleman sayısı %d %d\n", list->a_size, list->b_size);
+	printf("A B eleman sayisi %d %d\n", list->a_size, list->b_size);
 }

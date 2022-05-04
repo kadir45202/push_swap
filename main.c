@@ -49,7 +49,7 @@ void	make_list(t_list *list)
 	int	i;
 	int	number;
 	i = 0;
-	number = 13;
+	number = 20;
 	while(list->a_size)
 	{
 			if(list->a[0] <= number && there_is(list, number) != 0)
@@ -58,7 +58,7 @@ void	make_list(t_list *list)
 			}
 			else if(there_is(list, number) <= 2)
 			{
-				number += 20;
+				number += 15;
 			}
 			else
 				ra(list);
@@ -91,13 +91,13 @@ void parca(t_list *list)
 
 int main(int argc, char **argv)
 {
-	t_list *list = malloc(10000);
-    ft_malloc(list);
+	t_list *list = malloc(sizeof(t_list) * argc);
+    
     int i = 0;
 	argc -= 1;
 	
 	list->a_size = argc;
-	
+	ft_malloc(list);
 	while(argc > 0)
 	{
 		list->a[i] = ft_atoi(argv[i + 1]);
@@ -106,10 +106,11 @@ int main(int argc, char **argv)
 	}
 
 	ft_memcpy(list->c,list->a,list->a_size * 4);
-	insertion(list->c,list->a_size, list);
-//		atma(list);
+	insertion(list->c,list->a_size);
+	
 		make_list(list);
-		parca(list);
+		atma(list);
+	//	parca(list);
 	//	yazdir(list);
         ft_free(list);
 	return 0;
