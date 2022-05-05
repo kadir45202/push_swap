@@ -35,34 +35,13 @@ int	there_is(t_list *list, int number)
 	int count;
 	i = 0;
 	count = 0;
-	while(i <= list->a_size)
+	while(i <= list->a_size - 1)
 	{
 		if(list->a[i] <= number)
-			count++;
+			return i;
 		i++;
 	}
-	return count;
-}
-
-void	make_list(t_list *list)
-{
-	int	i;
-	int	number;
-	i = 0;
-	number = 20;
-	while(list->a_size)
-	{
-			if(list->a[0] <= number && there_is(list, number) != 0)
-			{
-				pb(list);
-			}
-			else if(there_is(list, number) <= 2)
-			{
-				number += 15;
-			}
-			else
-				ra(list);
-	}
+	return -1;
 }
 
 void parca(t_list *list)
@@ -72,7 +51,7 @@ void parca(t_list *list)
 	i = 0;
 	while(list->b_size)
 	{
-		if(list->b[0] < list->a[0] || list->a_size == 0)
+		if(list->b[0] < list->a[0])
 		{
 			pa(list);
 		}
@@ -87,6 +66,41 @@ void parca(t_list *list)
 			sb(list);
 		}
 	}
+}
+
+void	make_list(t_list *list, int number)
+{
+	while (there_is(list, number) != -1)
+	{
+		if (list->a[0] <= number)
+		{
+			pb(list);
+		}
+		else
+			ra(list);
+	}
+}
+
+void	big_100(t_list *list)
+{
+	int		i;
+	float	k;
+	int		b;
+
+	i = 0;
+	k = (130 - (list->a_size + list->b_size) * 0.1) / 400;
+	while (i++ < 50)
+	{
+		b = (list->a_size - 2) * k + list->b_size;
+		make_list(list, list->c[b]);
+	}
+	if (list->a[0] > list->a[1])
+		sa(list);
+}
+
+void	argc_value(t_list *list)
+{
+		big_100(list);
 }
 
 int main(int argc, char **argv)
@@ -104,14 +118,13 @@ int main(int argc, char **argv)
 		i++;
 		argc--;
 	}
-
 	ft_memcpy(list->c,list->a,list->a_size * 4);
 	insertion(list->c,list->a_size);
-	
-		make_list(list);
-		atma(list);
-	//	parca(list);
-	//	yazdir(list);
+
+		argc_value(list);
+		//atma(list);
+		parca(list);
+		yazdir(list);
         ft_free(list);
 	return 0;
 }
