@@ -29,6 +29,23 @@ int	find_bigger(t_list *list)
 	return number;
 }
 
+int	find_little(t_list *list)
+{
+	int	i;
+	int number;
+	i = list->a_size + list->b_size - 1;
+	number = list->a[0];
+	while(i != 0)
+	{
+		if(list->a[i] < number)
+		{
+			number = list->a[i];
+		}
+		i--;
+	}
+	return number;
+}
+
 int	there_is(t_list *list, int number)
 {
 	int	i;
@@ -38,10 +55,10 @@ int	there_is(t_list *list, int number)
 	while(i <= list->a_size - 1)
 	{
 		if(list->a[i] <= number)
-			return i;
+			return 2;
 		i++;
 	}
-	return -1;
+	return 1;
 }
 
 void parca(t_list *list)
@@ -49,12 +66,11 @@ void parca(t_list *list)
 	int	i;
 
 	i = 0;
+	pa(list);
 	while(list->b_size)
 	{
 		if(list->b[0] < list->a[0])
-		{
 			pa(list);
-		}
 		else if(list->b[0] < list->a[1])
 		{
 			pa(list);
@@ -68,39 +84,23 @@ void parca(t_list *list)
 	}
 }
 
-void	make_list(t_list *list, int number)
+void	make_list(t_list *list)
 {
-	while (there_is(list, number) != -1)
+	int	number;
+	number = find_little(list) + 10;
+	while(list->a_size - 1)
 	{
-		if (list->a[0] <= number)
-		{
-			pb(list);
-		}
-		else
-			ra(list);
+			if(list->a[0] <= number)
+			{
+				pb(list);
+			}
+			else if(there_is(list, number) == 1)
+			{
+				number += 15;
+			}
+			else
+				ra(list);
 	}
-}
-
-void	big_100(t_list *list)
-{
-	int		i;
-	float	k;
-	int		b;
-
-	i = 0;
-	k = (130 - (list->a_size + list->b_size) * 0.1) / 400;
-	while (i++ < 50)
-	{
-		b = (list->a_size - 2) * k + list->b_size;
-		make_list(list, list->c[b]);
-	}
-	if (list->a[0] > list->a[1])
-		sa(list);
-}
-
-void	argc_value(t_list *list)
-{
-		big_100(list);
 }
 
 int main(int argc, char **argv)
@@ -121,8 +121,7 @@ int main(int argc, char **argv)
 	ft_memcpy(list->c,list->a,list->a_size * 4);
 	insertion(list->c,list->a_size);
 
-		argc_value(list);
-		//atma(list);
+		make_list(list);
 		parca(list);
 		yazdir(list);
         ft_free(list);
